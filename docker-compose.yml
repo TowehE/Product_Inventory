@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  app:
+    container_name: product-management-app  
+    build:
+      context: .  
+      args:
+        - MONGODB_URI=${MONGODB_URI}  
+    env_file:
+      - .env 
+    ports:
+      - "3000:3000"  
+    volumes:
+      - .:/src/app  
+      - /src/app/node_modules  
+    command: ["npm", "run", "dev"] 
+    environment:
+      - MONGODB_URI=${MONGODB_URI}  
