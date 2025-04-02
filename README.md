@@ -3,6 +3,8 @@
 ## Overview
 A RESTful API for managing products with token-based authentication.
 
+##BASE_URL: https://inventora-shopy.onrender.com
+
 ## Prerequisites
 - Node.js
 - Docker
@@ -41,90 +43,9 @@ A RESTful API for managing products with token-based authentication.
    ```
 
 ## API Documentation
-For detailed API documentation, use Postman to explore the endpoints.
+You can finf the API documetation here:
+https://documenter.getpostman.com/view/31029158/2sB2cSfiHu
 
-### Authentication Endpoints
-#### Register a User
-- **Endpoint:** `POST /auth/register`
-- **Request Body:**
-  ```json
-  {
-    "email": "user@example.com",
-    "password": "password123"
-  }
-  ```
-- **Responses:**
-  - `201`: User created
-  - `400`: Validation error
-
-#### Login a User
-- **Endpoint:** `POST /auth/login`
-- **Request Body:**
-  ```json
-  {
-    "email": "user@example.com",
-    "password": "password123"
-  }
-  ```
-- **Responses:**
-  - `200`: JWT Token
-  - `401`: Invalid credentials
-
-### Product Endpoints
-#### Create a Product
-- **Endpoint:** `POST /products`
-- **Requires:** Authorization Header (JWT Token)
-- **Request Body:**
-  ```json
-  {
-    "name": "Product Name",
-    "description": "Product Description",
-    "price": 19.99,
-    "category": "Electronics",
-    "stock": 100
-  }
-  ```
-- **Responses:**
-  - `201`: Product created
-  - `400`: Validation error
-
-#### Get All Products
-- **Endpoint:** `GET /products`
-- **Query Params:** `page`, `limit`, `category`, `minPrice`, `maxPrice`
-- **Requires:** Authorization Header
-- **Responses:**
-  - `200`: List of products
-  - `500`: Server error
-
-#### Update a Product
-- **Endpoint:** `PUT /products/:id`
-- **Requires:** Authorization Header
-- **Request Body:** Same as `POST /products`
-- **Responses:**
-  - `200`: Product updated
-  - `404`: Product not found
-
-#### Delete a Product
-- **Endpoint:** `DELETE /products/:id`
-- **Requires:** Authorization Header
-- **Responses:**
-  - `200`: Product deleted
-  - `404`: Product not found
-
-#### Purchase a Product
-- **Endpoint:** `POST /products/buy`
-- **Requires:** Authorization Header
-- **Request Body:**
-  ```json
-  {
-    "productId": "12345",
-    "quantity": 2
-  }
-  ```
-- **Responses:**
-  - `200`: Purchase successful
-  - `400`: Insufficient stock or validation error
-  - `404`: Product not found
 
 ## Testing
 To run tests:
