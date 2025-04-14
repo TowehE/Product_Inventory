@@ -51,7 +51,7 @@ const requireRole = (roles: string[]) => {
         }
 
         if (!roles.includes(user.role)) {
-          return res.status(401).json({ error: "Forbidden:You are not permitted to perform this action. Only registered administrators have access. Your current role is User" });
+          return res.status(401).json({ error: "Forbidden:You are not permitted to perform this action. Only registered administrators have access. Your current role is User"});
         }
 
         req.role = user.role;
