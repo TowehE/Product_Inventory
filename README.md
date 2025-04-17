@@ -1,7 +1,7 @@
 # Product Management API
 
 ## Overview
-A RESTful API for managing products with token-based authentication.
+A role-based RESTful API for creating and managing products using token-based authentication.
 
 ##BASE_URL: https://inventora-shopy.onrender.com
 
