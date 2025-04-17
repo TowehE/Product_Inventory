@@ -9,7 +9,7 @@ import {
 } from '../utils/authHelper';
 
 export default class AuthService {
-  static async register(email: string, firstName: string, lastName: string, password: string) {
+  static async register(email: string, firstName: string, lastName: string, password: string, role: string = 'user') {
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       throw new Error('User already exists');
@@ -27,6 +27,7 @@ export default class AuthService {
       verificationOTP: otp,
       otpExpires,
       isVerified: false,
+      role: role
     });
 
     await user.save();

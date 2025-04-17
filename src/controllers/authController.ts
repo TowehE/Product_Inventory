@@ -4,7 +4,7 @@ import AuthService from '../services/authService';
 export default class AuthController {
   static async register(req: Request, res: Response): Promise<Response> {
     try {
-      const { email, firstName, lastName, password } = req.body;
+      const { email, firstName, lastName, password, role } = req.body;
       
   
       if (!email || !firstName || !lastName || !password) {
@@ -17,7 +17,7 @@ export default class AuthController {
         return res.status(400).json({ error: 'Invalid email format' });
       }
       
-      const result = await AuthService.register(email, firstName, lastName, password);
+      const result = await AuthService.register(email, firstName, lastName, password, role);
       
       return res.status(201).json({
         message: 'User registered successfully. Please check your email for verification code.',
